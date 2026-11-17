@@ -29,6 +29,7 @@
     .card:hover{transform:translateY(-4px);border-color:#7167ad;box-shadow:0 14px 35px #0005}.card-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:17px}
     .tool-icon{width:43px;height:43px;border-radius:13px;display:grid;place-items:center;font-size:14px;font-weight:850;letter-spacing:-.5px;color:#f8f7ff;border:1px solid #ffffff18}
     .tag{font-size:11px;color:#bcb4ff;background:#a18bff15;border:1px solid #a18bff2c;padding:4px 8px;border-radius:99px}
+    .card-tags{display:flex;align-items:center;justify-content:flex-end;gap:6px;flex-wrap:wrap}.price-tag{font-size:11px;font-weight:750;padding:4px 8px;border-radius:99px}.price-tag.free{color:#75e0b3;background:#75e0b314;border:1px solid #75e0b344}.price-tag.paid{color:#ffbf86;background:#ffbf8614;border:1px solid #ffbf8644}
     .card h2{font-size:17px;letter-spacing:-.35px;margin:0 0 6px}.card p{font-size:13px;color:var(--muted);margin:0 0 18px;line-height:1.55}
     .visit{margin-top:auto;color:#bcb4ff;font-size:12px;font-weight:750;display:flex;align-items:center;gap:6px}.card:hover .visit{color:#78e5dc}
     .empty{grid-column:1/-1;text-align:center;padding:55px 20px;border:1px dashed #343b50;border-radius:16px;color:var(--muted)}
@@ -54,26 +55,26 @@
   <footer><div class="wrap">AI Central · An independent directory of AI tools. Always check each tool's official website for current features and availability.</div></footer>
   <script>
     const tools = [
-      {name:"ChatGPT",short:"GPT",category:"Chatbots",desc:"An AI assistant for questions, writing, learning, and creative projects.",url:"https://chatgpt.com",color:"#167c68"},
-      {name:"Claude",short:"C",category:"Chatbots",desc:"An AI assistant built for thoughtful conversations, writing, and problem-solving.",url:"https://claude.ai",color:"#a66b48"},
-      {name:"Google Gemini",short:"G",category:"Chatbots",desc:"Google's AI assistant for brainstorming, learning, and getting things done.",url:"https://gemini.google.com",color:"#4269bd"},
-      {name:"Microsoft Copilot",short:"✦",category:"Chatbots",desc:"An AI companion that can help with answers, ideas, and everyday tasks.",url:"https://copilot.microsoft.com",color:"#287eaa"},
-      {name:"Grok",short:"x",category:"Chatbots",desc:"An AI assistant from xAI for conversation, questions, and exploration.",url:"https://grok.com",color:"#343b4b"},
-      {name:"Perplexity",short:"P",category:"Research",desc:"An AI-powered answer engine that helps explore topics with sources.",url:"https://www.perplexity.ai",color:"#287f83"},
-      {name:"Midjourney",short:"MJ",category:"Image Generation",desc:"Create imaginative images from text prompts.",url:"https://www.midjourney.com",color:"#555d78"},
-      {name:"Adobe Firefly",short:"F",category:"Image Generation",desc:"Adobe's generative AI tools for images and creative design.",url:"https://firefly.adobe.com",color:"#a34c83"},
-      {name:"Ideogram",short:"I",category:"Image Generation",desc:"Generate images, designs, and graphics from written prompts.",url:"https://ideogram.ai",color:"#7761bd"},
-      {name:"Leonardo AI",short:"L",category:"Image Generation",desc:"An AI creative platform for generating images and visual assets.",url:"https://leonardo.ai",color:"#426a91"},
-      {name:"Runway",short:"R",category:"Video",desc:"Creative AI tools for generating and editing video.",url:"https://runwayml.com",color:"#5964b8"},
-      {name:"Pika",short:"Pi",category:"Video",desc:"Turn creative ideas into short AI-generated videos.",url:"https://pika.art",color:"#9a5db0"},
-      {name:"Kling AI",short:"K",category:"Video",desc:"Generate video and images with AI-powered creative tools.",url:"https://klingai.com",color:"#3c70a2"},
-      {name:"Sora",short:"S",category:"Video",desc:"OpenAI's tool for creating videos from prompts and ideas.",url:"https://sora.com",color:"#476d83"},
-      {name:"Cursor",short:"Cu",category:"Coding",desc:"An AI-powered code editor designed to help you build software.",url:"https://cursor.com",color:"#596477"},
-      {name:"GitHub Copilot",short:"GH",category:"Coding",desc:"An AI coding assistant that helps explain and write code.",url:"https://github.com/features/copilot",color:"#444b5b"},
-      {name:"Replit",short:"Re",category:"Coding",desc:"Build, run, and share apps in an online development environment.",url:"https://replit.com",color:"#d16c42"},
-      {name:"Lovable",short:"♡",category:"Coding",desc:"Create web apps by describing what you want to build.",url:"https://lovable.dev",color:"#a65b91"},
-      {name:"Google NotebookLM",short:"N",category:"Research",desc:"Explore your sources and turn notes into useful explanations and summaries.",url:"https://notebooklm.google.com",color:"#6879a9"},
-      {name:"Elicit",short:"E",category:"Research",desc:"An AI research assistant for exploring and organizing academic papers.",url:"https://elicit.com",color:"#4c8b79"}
+      {name:"ChatGPT",short:"GPT",category:"Chatbots",desc:"An AI assistant for questions, writing, learning, and creative projects.",url:"https://chatgpt.com",color:"#167c68",pricing:"Free"},
+      {name:"Claude",short:"C",category:"Chatbots",desc:"An AI assistant built for thoughtful conversations, writing, and problem-solving.",url:"https://claude.ai",color:"#a66b48",pricing:"Free"},
+      {name:"Google Gemini",short:"G",category:"Chatbots",desc:"Google's AI assistant for brainstorming, learning, and getting things done.",url:"https://gemini.google.com",color:"#4269bd",pricing:"Free"},
+      {name:"Microsoft Copilot",short:"✦",category:"Chatbots",desc:"An AI companion that can help with answers, ideas, and everyday tasks.",url:"https://copilot.microsoft.com",color:"#287eaa",pricing:"Free"},
+      {name:"Grok",short:"x",category:"Chatbots",desc:"An AI assistant from xAI for conversation, questions, and exploration.",url:"https://grok.com",color:"#343b4b",pricing:"Free"},
+      {name:"Perplexity",short:"P",category:"Research",desc:"An AI-powered answer engine that helps explore topics with sources.",url:"https://www.perplexity.ai",color:"#287f83",pricing:"Free"},
+      {name:"Midjourney",short:"MJ",category:"Image Generation",desc:"Create imaginative images from text prompts.",url:"https://www.midjourney.com",color:"#555d78",pricing:"Paid"},
+      {name:"Adobe Firefly",short:"F",category:"Image Generation",desc:"Adobe's generative AI tools for images and creative design.",url:"https://firefly.adobe.com",color:"#a34c83",pricing:"Free"},
+      {name:"Ideogram",short:"I",category:"Image Generation",desc:"Generate images, designs, and graphics from written prompts.",url:"https://ideogram.ai",color:"#7761bd",pricing:"Free"},
+      {name:"Leonardo AI",short:"L",category:"Image Generation",desc:"An AI creative platform for generating images and visual assets.",url:"https://leonardo.ai",color:"#426a91",pricing:"Free"},
+      {name:"Runway",short:"R",category:"Video",desc:"Creative AI tools for generating and editing video.",url:"https://runwayml.com",color:"#5964b8",pricing:"Free"},
+      {name:"Pika",short:"Pi",category:"Video",desc:"Turn creative ideas into short AI-generated videos.",url:"https://pika.art",color:"#9a5db0",pricing:"Free"},
+      {name:"Kling AI",short:"K",category:"Video",desc:"Generate video and images with AI-powered creative tools.",url:"https://klingai.com",color:"#3c70a2",pricing:"Free"},
+      {name:"Sora",short:"S",category:"Video",desc:"OpenAI's tool for creating videos from prompts and ideas.",url:"https://sora.com",color:"#476d83",pricing:"Paid"},
+      {name:"Cursor",short:"Cu",category:"Coding",desc:"An AI-powered code editor designed to help you build software.",url:"https://cursor.com",color:"#596477",pricing:"Free"},
+      {name:"GitHub Copilot",short:"GH",category:"Coding",desc:"An AI coding assistant that helps explain and write code.",url:"https://github.com/features/copilot",color:"#444b5b",pricing:"Free"},
+      {name:"Replit",short:"Re",category:"Coding",desc:"Build, run, and share apps in an online development environment.",url:"https://replit.com",color:"#d16c42",pricing:"Free"},
+      {name:"Lovable",short:"♡",category:"Coding",desc:"Create web apps by describing what you want to build.",url:"https://lovable.dev",color:"#a65b91",pricing:"Free"},
+      {name:"Google NotebookLM",short:"N",category:"Research",desc:"Explore your sources and turn notes into useful explanations and summaries.",url:"https://notebooklm.google.com",color:"#6879a9",pricing:"Free"},
+      {name:"Elicit",short:"E",category:"Research",desc:"An AI research assistant for exploring and organizing academic papers.",url:"https://elicit.com",color:"#4c8b79",pricing:"Free"}
     ];
     const categories = ["All","Chatbots","Image Generation","Video","Coding","Research"];
     let active = "All";
@@ -95,7 +96,7 @@
       visible.forEach(tool => {
         const card = document.createElement("a");
         card.className = "card"; card.href = tool.url; card.target = "_blank"; card.rel = "noopener noreferrer";
-        card.innerHTML = '<div class="card-top"><div class="tool-icon" style="background:' + tool.color + '25;color:' + tool.color + ';border-color:' + tool.color + '55">' + tool.short + '</div><span class="tag">' + tool.category + '</span></div><h2></h2><p></p><span class="visit">Visit website <span aria-hidden="true">↗</span></span>';
+        card.innerHTML = '<div class="card-top"><div class="tool-icon" style="background:' + tool.color + '25;color:' + tool.color + ';border-color:' + tool.color + '55">' + tool.short + '</div><div class="card-tags"><span class="tag">' + tool.category + '</span><span class="price-tag ' + tool.pricing.toLowerCase() + '">' + tool.pricing + '</span></div></div><h2></h2><p></p><span class="visit">Visit website <span aria-hidden="true">↗</span></span>';
         card.querySelector("h2").textContent = tool.name;
         card.querySelector("p").textContent = tool.desc;
         grid.appendChild(card);
