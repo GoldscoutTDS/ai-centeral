@@ -42,10 +42,20 @@
     footer{border-top:1px solid #ffffff10;padding:28px 0 38px;color:#777e98;font-size:11px;text-align:center}.footer-brand{font:700 15px 'Space Grotesk',sans-serif;color:#d7d2ee;margin-bottom:5px}
     @media(max-width:850px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.featured{grid-template-columns:1fr 1fr}.feature:first-child{grid-column:1/-1}.hero:before{left:2%}.hero:after{right:3%}}
     @media(max-width:560px){.wrap{width:calc(100% - 28px)}.topline{font-size:9px;letter-spacing:1px}.nav-right>span:first-child{display:none}header{height:66px}.hero{padding:65px 0 39px}h1{font-size:48px;letter-spacing:-3px}.sub{font-size:14px}.hero:before,.hero:after{display:none}.stats{gap:20px}.stat strong{font-size:19px}.stat span{font-size:9px}.featured{grid-template-columns:1fr;margin-bottom:45px}.feature:first-child{grid-column:auto}.feature{min-height:135px}.directory-top{align-items:flex-start;flex-direction:column}.directory-tools{width:100%}.sort{width:100%}.grid{grid-template-columns:1fr}.card{min-height:180px}.filters{gap:6px}.filter{padding:8px 11px;font-size:11px}#search{padding-right:18px}.keycap{display:none}}
+
+    /* Gentle snowfall that loops continuously down the full page */
+    #snowfall{position:absolute;inset:0 0 auto;height:100%;min-height:100%;overflow:hidden;pointer-events:none;z-index:1}
+    .snowflake{position:absolute;top:-24px;color:#f2f5ff;opacity:var(--opacity,.65);font-size:var(--size,8px);text-shadow:0 0 9px #c9d8ff88;animation:snow-loop var(--duration,16s) linear var(--delay,0s) infinite;will-change:transform}
+    @keyframes snow-loop{0%{transform:translate3d(0,-30px,0) rotate(0deg)}50%{transform:translate3d(var(--drift,24px),50vh,0) rotate(180deg)}100%{transform:translate3d(0,calc(100vh + 60px),0) rotate(360deg)}}
+    body{position:relative}
+    body>*:not(#snowfall){position:relative;z-index:2}
+    #snowfall{z-index:1}
+    @media(prefers-reduced-motion:reduce){.snowflake{animation:none;display:none}}
     @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
   </style>
 </head>
 <body>
+  <div id="snowfall" aria-hidden="true"></div>
   <div class="topline"><span></span> Your launchpad to the world of AI <span></span></div>
   <header><div class="wrap nav"><a class="brand" href="#"><span class="brand-mark">✳</span><span>AI <em>Central</em></span></a><div class="nav-right"><span>Discover something brilliant.</span><span class="live"><i></i> DIRECTORY LIVE</span></div></div></header>
   <main>
@@ -73,6 +83,31 @@
   </main>
   <footer><div class="wrap"><div class="footer-brand">✳ AI Central</div>Independent directory made for discovering AI. Tool features, pricing, and availability can change, so check official sites for the latest details.</div></footer>
   <script>
+    // Create a lightweight snowfall layer covering the entire document.
+    const snowLayer = document.getElementById("snowfall");
+    function makeSnow(){
+      const pageHeight = Math.max(document.documentElement.scrollHeight, window.innerHeight);
+      snowLayer.style.height = pageHeight + "px";
+      snowLayer.innerHTML = "";
+      const flakeCount = Math.min(95, Math.max(45, Math.round(window.innerWidth / 14)));
+      for(let i=0;i<flakeCount;i++){
+        const flake = document.createElement("span");
+        flake.className = "snowflake";
+        flake.textContent = Math.random() > .82 ? "✦" : "•";
+        flake.style.left = (Math.random()*100) + "%";
+        flake.style.setProperty("--size",(3+Math.random()*7)+"px");
+        flake.style.setProperty("--opacity",(0.25+Math.random()*0.55).toFixed(2));
+        flake.style.setProperty("--duration",(12+Math.random()*17)+"s");
+        flake.style.setProperty("--delay",(-Math.random()*28)+"s");
+        flake.style.setProperty("--drift",(-35+Math.random()*70)+"px");
+        snowLayer.appendChild(flake);
+      }
+    }
+    makeSnow();
+    window.addEventListener("resize",makeSnow);
+    if("ResizeObserver" in window){
+      new ResizeObserver(()=>{snowLayer.style.height=Math.max(document.documentElement.scrollHeight,window.innerHeight)+"px";}).observe(document.body);
+    }
     const tools = [
       {name:"ChatGPT",short:"GPT",category:"Chatbots",desc:"An AI assistant for questions, writing, learning, and creative projects.",url:"https://chatgpt.com",color:"#167c68",pricing:"Free"},
       {name:"Claude",short:"C",category:"Chatbots",desc:"An AI assistant for thoughtful conversations, writing, and problem-solving.",url:"https://claude.ai",color:"#a66b48",pricing:"Free"},
