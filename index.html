@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090b12">
+  <meta name="description" content="Discover useful AI tools for chat, images, video, coding, and research.">
+  <title>AI Central | Find your next AI tool</title>
+  <style>
+    :root{color-scheme:dark;--bg:#090b12;--panel:#111522;--panel2:#151b2b;--line:#242c40;--muted:#929bb1;--text:#f4f6ff;--accent:#9b8cff;--accent2:#63d7d0}
+    *{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% -18%,#29204b 0,transparent 42%),var(--bg);color:var(--text);font:15px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif}
+    a{color:inherit;text-decoration:none}.wrap{width:min(1120px,calc(100% - 40px));margin:auto}
+    header{height:76px;border-bottom:1px solid #ffffff10;display:flex;align-items:center}
+    .nav{display:flex;align-items:center;justify-content:space-between}.brand{display:flex;align-items:center;gap:11px;font-size:19px;font-weight:800;letter-spacing:-.6px}
+    .brand-mark{width:34px;height:34px;border-radius:11px;background:linear-gradient(135deg,#a18bff,#58d8d0);display:grid;place-items:center;color:#090b12;font-weight:950;font-size:17px;box-shadow:0 5px 24px #8c7cff40}
+    .nav-note{color:var(--muted);font-size:13px}.hero{text-align:center;padding:76px 0 34px}.eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px solid #a18bff45;background:#a18bff12;color:#c9c0ff;padding:6px 12px;border-radius:99px;font-size:12px;font-weight:700;letter-spacing:.4px}
+    .dot{width:7px;height:7px;border-radius:50%;background:#6ee7c8;box-shadow:0 0 12px #6ee7c8}
+    h1{font-size:clamp(42px,7vw,70px);line-height:1.03;letter-spacing:-3.8px;margin:22px 0 16px;font-weight:850}
+    h1 span{background:linear-gradient(95deg,#b5a7ff,#6ce1d6);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .sub{color:var(--muted);font-size:17px;max-width:560px;margin:0 auto}
+    .search-wrap{max-width:650px;margin:30px auto 0;position:relative}.search-icon{position:absolute;left:18px;top:50%;transform:translateY(-50%);font-size:18px;color:#858da4;pointer-events:none}
+    #search{width:100%;padding:17px 18px 17px 50px;border:1px solid #353b55;border-radius:15px;background:#111522e8;color:var(--text);font:inherit;font-size:15px;outline:none;box-shadow:0 12px 40px #0004;transition:.2s}
+    #search:focus{border-color:#a18bff;box-shadow:0 0 0 4px #a18bff1c}#search::placeholder{color:#737d95}
+    .content{padding:25px 0 80px}.toolbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:22px;flex-wrap:wrap}
+    .filters{display:flex;gap:8px;flex-wrap:wrap}.filter{border:1px solid var(--line);background:#111522;color:#aeb6ca;padding:8px 13px;border-radius:99px;font:600 13px inherit;cursor:pointer;transition:.18s}
+    .filter:hover{border-color:#7770b8;color:white}.filter.active{background:#a18bff;color:#0c0d16;border-color:#a18bff}
+    .count{font-size:13px;color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+    .card{position:relative;display:flex;flex-direction:column;min-height:190px;padding:19px;border:1px solid var(--line);border-radius:17px;background:linear-gradient(145deg,#151a29,#101420);transition:transform .2s,border-color .2s,box-shadow .2s}
+    .card:hover{transform:translateY(-4px);border-color:#7167ad;box-shadow:0 14px 35px #0005}.card-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:17px}
+    .tool-icon{width:43px;height:43px;border-radius:13px;display:grid;place-items:center;font-size:14px;font-weight:850;letter-spacing:-.5px;color:#f8f7ff;border:1px solid #ffffff18}
+    .tag{font-size:11px;color:#bcb4ff;background:#a18bff15;border:1px solid #a18bff2c;padding:4px 8px;border-radius:99px}
+    .card h2{font-size:17px;letter-spacing:-.35px;margin:0 0 6px}.card p{font-size:13px;color:var(--muted);margin:0 0 18px;line-height:1.55}
+    .visit{margin-top:auto;color:#bcb4ff;font-size:12px;font-weight:750;display:flex;align-items:center;gap:6px}.card:hover .visit{color:#78e5dc}
+    .empty{grid-column:1/-1;text-align:center;padding:55px 20px;border:1px dashed #343b50;border-radius:16px;color:var(--muted)}
+    footer{border-top:1px solid #ffffff10;padding:24px 0 35px;color:#727c92;font-size:12px;text-align:center}
+    @media(max-width:800px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}h1{letter-spacing:-2.5px}}
+    @media(max-width:540px){.wrap{width:min(100% - 28px,1120px)}header{height:65px}.nav-note{display:none}.hero{padding:58px 0 25px}.sub{font-size:15px}h1{font-size:45px}.grid{grid-template-columns:1fr}.card{min-height:165px}.toolbar{align-items:flex-start}.filters{gap:6px}.filter{padding:7px 10px;font-size:12px}}
+  </style>
+</head>
+<body>
+  <header><div class="wrap nav"><a class="brand" href="#"><span class="brand-mark">✳</span>AI Central</a><span class="nav-note">Your directory for discovering AI</span></div></header>
+  <main>
+    <section class="hero wrap">
+      <div class="eyebrow"><span class="dot"></span> THE AI TOOL DIRECTORY</div>
+      <h1>Find the right AI.<br><span>Do more with it.</span></h1>
+      <p class="sub">A growing collection of AI tools for creating, learning, building, and exploring. Find your next favourite.</p>
+      <div class="search-wrap"><span class="search-icon">⌕</span><input id="search" type="search" placeholder="Search AI tools..." autocomplete="off" aria-label="Search AI tools"></div>
+    </section>
+    <section class="content wrap">
+      <div class="toolbar"><div class="filters" id="filters" aria-label="Filter by category"></div><div class="count" id="count" aria-live="polite"></div></div>
+      <div class="grid" id="grid"></div>
+    </section>
+  </main>
+  <footer><div class="wrap">AI Central · An independent directory of AI tools. Always check each tool's official website for current features and availability.</div></footer>
+  <script>
+    const tools = [
+      {name:"ChatGPT",short:"GPT",category:"Chatbots",desc:"An AI assistant for questions, writing, learning, and creative projects.",url:"https://chatgpt.com",color:"#167c68"},
+      {name:"Claude",short:"C",category:"Chatbots",desc:"An AI assistant built for thoughtful conversations, writing, and problem-solving.",url:"https://claude.ai",color:"#a66b48"},
+      {name:"Google Gemini",short:"G",category:"Chatbots",desc:"Google's AI assistant for brainstorming, learning, and getting things done.",url:"https://gemini.google.com",color:"#4269bd"},
+      {name:"Microsoft Copilot",short:"✦",category:"Chatbots",desc:"An AI companion that can help with answers, ideas, and everyday tasks.",url:"https://copilot.microsoft.com",color:"#287eaa"},
+      {name:"Grok",short:"x",category:"Chatbots",desc:"An AI assistant from xAI for conversation, questions, and exploration.",url:"https://grok.com",color:"#343b4b"},
+      {name:"Perplexity",short:"P",category:"Research",desc:"An AI-powered answer engine that helps explore topics with sources.",url:"https://www.perplexity.ai",color:"#287f83"},
+      {name:"Midjourney",short:"MJ",category:"Image Generation",desc:"Create imaginative images from text prompts.",url:"https://www.midjourney.com",color:"#555d78"},
+      {name:"Adobe Firefly",short:"F",category:"Image Generation",desc:"Adobe's generative AI tools for images and creative design.",url:"https://firefly.adobe.com",color:"#a34c83"},
+      {name:"Ideogram",short:"I",category:"Image Generation",desc:"Generate images, designs, and graphics from written prompts.",url:"https://ideogram.ai",color:"#7761bd"},
+      {name:"Leonardo AI",short:"L",category:"Image Generation",desc:"An AI creative platform for generating images and visual assets.",url:"https://leonardo.ai",color:"#426a91"},
+      {name:"Runway",short:"R",category:"Video",desc:"Creative AI tools for generating and editing video.",url:"https://runwayml.com",color:"#5964b8"},
+      {name:"Pika",short:"Pi",category:"Video",desc:"Turn creative ideas into short AI-generated videos.",url:"https://pika.art",color:"#9a5db0"},
+      {name:"Kling AI",short:"K",category:"Video",desc:"Generate video and images with AI-powered creative tools.",url:"https://klingai.com",color:"#3c70a2"},
+      {name:"Sora",short:"S",category:"Video",desc:"OpenAI's tool for creating videos from prompts and ideas.",url:"https://sora.com",color:"#476d83"},
+      {name:"Cursor",short:"Cu",category:"Coding",desc:"An AI-powered code editor designed to help you build software.",url:"https://cursor.com",color:"#596477"},
+      {name:"GitHub Copilot",short:"GH",category:"Coding",desc:"An AI coding assistant that helps explain and write code.",url:"https://github.com/features/copilot",color:"#444b5b"},
+      {name:"Replit",short:"Re",category:"Coding",desc:"Build, run, and share apps in an online development environment.",url:"https://replit.com",color:"#d16c42"},
+      {name:"Lovable",short:"♡",category:"Coding",desc:"Create web apps by describing what you want to build.",url:"https://lovable.dev",color:"#a65b91"},
+      {name:"Google NotebookLM",short:"N",category:"Research",desc:"Explore your sources and turn notes into useful explanations and summaries.",url:"https://notebooklm.google.com",color:"#6879a9"},
+      {name:"Elicit",short:"E",category:"Research",desc:"An AI research assistant for exploring and organizing academic papers.",url:"https://elicit.com",color:"#4c8b79"}
+    ];
+    const categories = ["All","Chatbots","Image Generation","Video","Coding","Research"];
+    let active = "All";
+    const grid = document.getElementById("grid"), filters = document.getElementById("filters"), search = document.getElementById("search"), count = document.getElementById("count");
+    categories.forEach(category => {
+      const button = document.createElement("button");
+      button.className = "filter" + (category === active ? " active" : "");
+      button.textContent = category;
+      button.addEventListener("click", () => { active = category; render(); });
+      filters.appendChild(button);
+    });
+    function render(){
+      const query = search.value.trim().toLowerCase();
+      const visible = tools.filter(tool => (active === "All" || tool.category === active) && (tool.name + " " + tool.desc + " " + tool.category).toLowerCase().includes(query));
+      [...filters.children].forEach(button => { button.classList.toggle("active", button.textContent === active); button.setAttribute("aria-pressed", String(button.textContent === active)); });
+      count.textContent = visible.length + (visible.length === 1 ? " tool" : " tools");
+      grid.innerHTML = "";
+      if (!visible.length) { grid.innerHTML = '<div class="empty">No tools found. Try another search.</div>'; return; }
+      visible.forEach(tool => {
+        const card = document.createElement("a");
+        card.className = "card"; card.href = tool.url; card.target = "_blank"; card.rel = "noopener noreferrer";
+        card.innerHTML = '<div class="card-top"><div class="tool-icon" style="background:' + tool.color + '25;color:' + tool.color + ';border-color:' + tool.color + '55">' + tool.short + '</div><span class="tag">' + tool.category + '</span></div><h2></h2><p></p><span class="visit">Visit website <span aria-hidden="true">↗</span></span>';
+        card.querySelector("h2").textContent = tool.name;
+        card.querySelector("p").textContent = tool.desc;
+        grid.appendChild(card);
+      });
+    }
+    search.addEventListener("input", render);
+    render();
+  </script>
+</body>
+</html>
