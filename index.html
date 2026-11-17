@@ -44,12 +44,10 @@
     @media(max-width:560px){.wrap{width:calc(100% - 28px)}.topline{font-size:9px;letter-spacing:1px}.nav-right>span:first-child{display:none}header{height:66px}.hero{padding:65px 0 39px}h1{font-size:48px;letter-spacing:-3px}.sub{font-size:14px}.hero:before,.hero:after{display:none}.stats{gap:20px}.stat strong{font-size:19px}.stat span{font-size:9px}.featured{grid-template-columns:1fr;margin-bottom:45px}.feature:first-child{grid-column:auto}.feature{min-height:135px}.directory-top{align-items:flex-start;flex-direction:column}.directory-tools{width:100%}.sort{width:100%}.grid{grid-template-columns:1fr}.card{min-height:180px}.filters{gap:6px}.filter{padding:8px 11px;font-size:11px}#search{padding-right:18px}.keycap{display:none}}
 
     /* Gentle snowfall that loops continuously down the full page */
-    #snowfall{position:absolute;inset:0 0 auto;height:100%;min-height:100%;overflow:hidden;pointer-events:none;z-index:1}
-    .snowflake{position:absolute;top:-24px;color:#f2f5ff;opacity:var(--opacity,.65);font-size:var(--size,8px);text-shadow:0 0 9px #c9d8ff88;animation:snow-loop var(--duration,16s) linear var(--delay,0s) infinite;will-change:transform}
+    #snowfall{position:absolute;inset:0 0 auto;height:100%;min-height:100%;overflow:hidden;pointer-events:none;z-index:20}
+    .snowflake{position:absolute;top:-24px;color:#fff;opacity:var(--opacity,.85);font-size:var(--size,9px);text-shadow:0 0 10px #dce8ff,0 0 18px #9ebcff88;animation:snow-loop var(--duration,16s) linear var(--delay,0s) infinite;will-change:transform}
     @keyframes snow-loop{0%{transform:translate3d(0,-30px,0) rotate(0deg)}50%{transform:translate3d(var(--drift,24px),50vh,0) rotate(180deg)}100%{transform:translate3d(0,calc(100vh + 60px),0) rotate(360deg)}}
     body{position:relative}
-    body>*:not(#snowfall){position:relative;z-index:2}
-    #snowfall{z-index:1}
     @media(prefers-reduced-motion:reduce){.snowflake{animation:none;display:none}}
     @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
   </style>
