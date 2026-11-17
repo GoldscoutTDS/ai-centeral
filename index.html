@@ -46,7 +46,7 @@
     /* Gentle snowfall that loops continuously down the full page */
     #snowfall{position:absolute;inset:0 0 auto;height:100%;min-height:100%;overflow:hidden;pointer-events:none;z-index:20}
     .snowflake{position:absolute;top:-24px;color:#fff;opacity:var(--opacity,.85);font-size:var(--size,9px);text-shadow:0 0 10px #dce8ff,0 0 18px #9ebcff88;animation:snow-loop var(--duration,16s) linear var(--delay,0s) infinite;will-change:transform}
-    @keyframes snow-loop{0%{transform:translate3d(0,-30px,0) rotate(0deg)}50%{transform:translate3d(var(--drift,24px),50vh,0) rotate(180deg)}100%{transform:translate3d(0,calc(100vh + 60px),0) rotate(360deg)}}
+    @keyframes snow-loop{0%{transform:translate3d(0,-30px,0) rotate(0deg)}50%{transform:translate3d(var(--drift,24px),var(--fall-midpoint,50vh),0) rotate(180deg)}100%{transform:translate3d(0,var(--fall-distance,calc(100vh + 60px)),0) rotate(360deg)}}
     body{position:relative}
     @media(prefers-reduced-motion:reduce){.snowflake{animation:none;display:none}}
     @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
@@ -98,13 +98,15 @@
         flake.style.setProperty("--duration",(12+Math.random()*17)+"s");
         flake.style.setProperty("--delay",(-Math.random()*28)+"s");
         flake.style.setProperty("--drift",(-35+Math.random()*70)+"px");
+        flake.style.setProperty("--fall-distance",(pageHeight+60)+"px");
+        flake.style.setProperty("--fall-midpoint",(pageHeight/2)+"px");
         snowLayer.appendChild(flake);
       }
     }
     makeSnow();
     window.addEventListener("resize",makeSnow);
     if("ResizeObserver" in window){
-      new ResizeObserver(()=>{snowLayer.style.height=Math.max(document.documentElement.scrollHeight,window.innerHeight)+"px";}).observe(document.body);
+      new ResizeObserver(()=>makeSnow()).observe(document.body);
     }
     const tools = [
       {name:"ChatGPT",short:"GPT",category:"Chatbots",desc:"An AI assistant for questions, writing, learning, and creative projects.",url:"https://chatgpt.com",color:"#167c68",pricing:"Free"},
